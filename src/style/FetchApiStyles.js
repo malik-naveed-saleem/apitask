@@ -2,16 +2,8 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   txtStyle: {
-    backgroundColor: '#d4b2ed',
-
-    paddingVertical: 40,
-    paddingHorizontal: 10,
-    fontSize: 30,
-    marginHorizontal: 40,
     textAlign: 'center',
-    borderRadius: 30,
-    borderWidth: 4,
-    borderColor: 'red',
+    fontSize: 18,
   },
   viewStyle: {
     backgroundColor: '#541780',
@@ -19,10 +11,28 @@ const styles = StyleSheet.create({
   },
   idStyle: {
     textAlign: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     fontSize: 25,
     marginHorizontal: 50,
-    borderRadius: 20,
+    // borderBottomLeftRadius: 20,
+    // borderBottomRightRadius: 20,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+  },
+  main_view: {
+    backgroundColor: '#d4b2ed',
+
+    paddingVertical: 10,
+
+    marginHorizontal: 40,
+    marginBottom: 10,
+
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    borderWidth: 4,
+    borderColor: 'red',
   },
 });
 export default styles;

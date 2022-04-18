@@ -1,12 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {
-  ActivityIndicator,
-  FlatList,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import styles from '../style/FetchApiStyles';
 
 App = () => {
@@ -15,10 +9,10 @@ App = () => {
 
   const getMovies = async () => {
     try {
-      const response = await fetch('https://reactnative.dev/movies.json');
+      const response = await fetch('https://reqres.in/api/users');
       const json = await response.json();
-      console.log(json);
-      setData(json.movies);
+      console.log(json.data);
+      setData(json.data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -29,20 +23,6 @@ App = () => {
   useEffect(() => {
     getMovies();
   }, []);
-  // const addData = () => {
-  //   fetch('https://reactnative.dev/movies.json', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       firstParam: 'yourValue',
-  //       secondParam: 'yourOtherValue',
-  //     }),
-  //   });
-  // };
-  // console.log(json);
 
   return (
     <View style={[styles.viewStyle]}>
@@ -54,17 +34,21 @@ App = () => {
           keyExtractor={({id}, index) => id}
           renderItem={({item}) => (
             <>
-              <Text style={[styles.idStyle]}>id is {item.id}</Text>
-              <Text style={[styles.txtStyle]}>
-                {item.title}, {item.releaseYear}
-              </Text>
+              <Text style={[styles.idStyle]}>{`id ${item.id} detail`}</Text>
+
+              <View style={styles.main_view}>
+                <Text style={[styles.txtStyle]}>
+                  {`First name => ${item.first_name}`}
+                </Text>
+                <Text style={[styles.txtStyle]}>
+                  {`last name => ${item.last_name}`}
+                </Text>
+                <Text style={[styles.txtStyle]}>{item.email}</Text>
+              </View>
             </>
           )}
         />
       )}
-      {/* <TouchableOpacity onPress={addData}>
-        <Text>Touch me</Text>
-      </TouchableOpacity> */}
     </View>
   );
 };
